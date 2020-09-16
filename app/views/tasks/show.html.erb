@@ -37,6 +37,9 @@
           <th>
             <%= Task.human_attribute_name(:description) %>
           </th>
+          <td>
+            <%= auto_link(simple_format(h(@task.description), {}, sanitize: false, wrapper_tag: "div" )) %>
+          <td>
         </tr>
 
         <tr>

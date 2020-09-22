@@ -8,19 +8,19 @@
 
 <%= form_with model: [:admin, user], local: true do |f| %>
   <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label :name, '名前' %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, rows: 5, class: 'form-control' %>
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.text_field :email, rows: 5, class: 'form-control' %>
   </div>
 
   <div class="form-check">
     <%= f.label :admin, class: 'form-check-label' do %>
-      <%= f.checkbox :admin, class: 'form-check-input' %>
-      <p>管理者権限</p>
+      <%= f.check_box :admin, {}, true, class: 'form-check-input' %>
+      <span>管理者権限</span>
     <% end %>
   </div>
 
@@ -30,7 +30,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation, 'パスワード' %>
+    <%= f.label :password_confirmation, 'パスワード(確認用)' %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
 

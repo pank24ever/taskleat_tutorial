@@ -1,22 +1,7 @@
 <h1>ユーザーを登録</h1>
 
-<%= form_with model: [:admin, @user], local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :name, '名前' %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+<div class="nav justify-content-end">
+  <%= link_to '一覧', admin_users_path, class:"nav-link" %>
+</div>
 
-  <div class="form-group">
-    <%= f.label :email, 'メールアドレス' %>
-    <%= f.text_field :email, class: 'form-control' %>
-  </div>
-
-  <div class="form-check">
-    <%= f.label :admin, class: 'form-check-label' do %>
-      <%= f.check_box :admin, class: 'form-check-input' %>
-      <span>管理者権限</span>
-    <% end %>
-  </div>
-
-  <%= render partial: 'form', locals: { user:@user } %>
-<% end %>
+<%= render partial: 'form', locals: { user:@user }%>

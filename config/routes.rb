@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   namespace :admin do
-    get 'users/new'
-    get 'users/edit'
-    get 'users/show'
-    get 'users/index'
+    resources :users
   end
   root to: 'tasks#index'
   resources :tasks

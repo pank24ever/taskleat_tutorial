@@ -2,11 +2,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = current_user.tasks.order(created_at: :desc)
+    @tasks = current_user.task.order(created_at: :desc)
   end
 
   def show
-    @task = current_user.tasks.find(params[:id])
+    @task = current_user.task.find(params[:id])
   end
 
   def new
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params)
+    @task = current_user.task.new(task_params)
 
     if @task.save
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました"
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = current_user.tasks.find(params[:id])
+    @task = current_user.task.find(params[:id])
   end
 
   def update
@@ -46,6 +46,6 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @task = current_user.tasks.find(params[:id])
+    @task = current_user.task.find(params[:id])
   end
 end
